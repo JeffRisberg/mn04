@@ -1,21 +1,12 @@
 micronaut:
   application:
-    name: mn03
+    name: mn04
 
 datasources:
   default:
     driver-class-name: org.mariadb.jdbc.Driver
     db-type: mariadb
 
-jpa.default.properties.hibernate.hbm2ddl.auto: none
-jpa.default.entity-scan.packages: com.company.domain
-
-jpa:
-  default:
-    properties:
-      hibernate:
-        hbm2ddl:
-          auto: none
 
 netty:
   default:

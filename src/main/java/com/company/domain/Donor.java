@@ -1,28 +1,24 @@
 package com.company.domain;
 
+import io.micronaut.data.annotation.Id;
+import io.micronaut.data.annotation.MappedEntity;
+import io.micronaut.data.annotation.MappedProperty;
 import io.micronaut.serde.annotation.Serdeable;
 import lombok.Data;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
 @Serdeable
-@Entity
-@Table(name = "donors")
 @Data
+@MappedEntity("donors")
 public class Donor {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   protected Long id;
 
-  @NotNull
-  @Column(name = "first_name", nullable = false)
-  private String firstName;
+  @MappedProperty("first_name")
+  private final String firstName;
 
-  @NotNull
-  @Column(name = "last_name", nullable = false)
-  private String lastName;
+  @MappedProperty("last_name")
+  private final String lastName;
 
-  private String address;
+  private final String address;
 }

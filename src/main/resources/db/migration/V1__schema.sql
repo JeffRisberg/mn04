@@ -1,4 +1,6 @@
+DROP TABLE IF EXISTS donors;
 DROP TABLE IF EXISTS charities;
+
 
 CREATE TABLE charities
 (
@@ -9,7 +11,6 @@ CREATE TABLE charities
   PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS donors;
 
 CREATE TABLE donors
 (
@@ -20,16 +21,3 @@ CREATE TABLE donors
   PRIMARY KEY (id)
 );
 
-
-DROP TABLE IF EXISTS donations;
-
-CREATE TABLE donations
-(
-  id         BIGINT NOT NULL AUTO_INCREMENT,
-  donor_id   BIGINT NOT NULL,
-  charity_id BIGINT NOT NULL,
-  amount     DOUBLE NOT NULL,
-  date_created DATE NULL,
-  last_updated DATE NULL,
-  PRIMARY KEY (id)
-);

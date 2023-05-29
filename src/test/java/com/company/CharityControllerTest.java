@@ -41,7 +41,7 @@ public class CharityControllerTest {
     List<Long> charityIds = new ArrayList<>();
 
     HttpRequest<?> request = HttpRequest.POST
-      ("/charities", Map.of("name", "RedCross", "ein", "56-4444", "description", "example"));
+      ("/charities", Map.of("name", "Red Cross", "ein", "56-4444", "description", "example"));
     HttpResponse<?> response = client.toBlocking().exchange(request);
     charityIds.add(entityId(response));
 

@@ -1,8 +1,8 @@
-## Micronaut 3.9.1 Documentation
+## Micronaut 3.9.4 Documentation
 
-- [User Guide](https://docs.micronaut.io/3.9.1/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.9.1/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.9.1/guide/configurationreference.html)
+- [User Guide](https://docs.micronaut.io/3.9.4/guide/index.html)
+- [API Reference](https://docs.micronaut.io/3.9.4/api/index.html)
+- [Configuration Reference](https://docs.micronaut.io/3.9.4/guide/configurationreference.html)
 - [Micronaut Guides](https://guides.micronaut.io/index.html)
 
 ---
@@ -49,4 +49,15 @@
 ## run this as
 
 ./gradlew run
+
+## sample urls
+
+curl http://localhost:8080/charities/list
+
+curl -X POST http://localhost:8080/charities -H 'Content-Type: application/json' -d '
+{"name": "American Cancer", "ein": "56-5555", "description": "example"}
+'
+
+curl http://localhost:8080/charities/list
+
 

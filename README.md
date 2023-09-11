@@ -62,4 +62,12 @@ curl -X POST http://localhost:8080/charities -H 'Content-Type: application/json'
 
 curl http://localhost:8080/charities/list
 
+curl http://localhost:8080/donors/list
 
+curl -X POST http://localhost:8080/donors -H 'Content-Type: application/json' -d '
+{"firstName": "Bob", "lastName": "Smith", "address": "Palo Alto, CA"}
+'
+
+curl http://localhost:8080/donors/list
+
+curl -X DELETE http://localhost:8080/donors/1

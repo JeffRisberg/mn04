@@ -22,5 +22,6 @@ public class Donor {
   @MappedProperty(value = "last_name")
   private final String lastName;
 
+  @MappedProperty(value = "address")
   private final String address;
 }

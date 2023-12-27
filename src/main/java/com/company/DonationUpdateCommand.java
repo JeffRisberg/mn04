@@ -2,7 +2,7 @@ package com.company;
 
 import io.micronaut.serde.annotation.Serdeable;
 import java.util.Date;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data

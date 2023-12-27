@@ -7,8 +7,9 @@ import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.exceptions.DataAccessException;
 import io.micronaut.data.repository.PageableRepository;
 import java.util.Date;
-import javax.transaction.Transactional;
-import javax.validation.constraints.NotNull;
+import jakarta.transaction.Transactional;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Repository()
 public interface DonationRepository extends PageableRepository<Donation, Long> {

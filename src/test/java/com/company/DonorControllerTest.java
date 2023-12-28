@@ -26,7 +26,7 @@ public class DonorControllerTest {
   HttpClient client;
 
   @Test
-  public void testFindNonExistingDonoryReturns404() {
+  public void testFindNonExistingDonorReturns404() {
     HttpClientResponseException thrown = assertThrows(HttpClientResponseException.class, () -> {
       client.toBlocking().exchange(HttpRequest.GET("/donors/99"));
     });

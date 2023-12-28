@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS charities;
 CREATE TABLE charities
 (
   id          BIGINT       NOT NULL AUTO_INCREMENT,
-  name        VARCHAR(255) NOT NULL UNIQUE,
+  name        VARCHAR(255) NOT NULL,
   ein         VARCHAR(255) NOT NULL UNIQUE,
   description VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
@@ -16,8 +16,8 @@ CREATE TABLE charities
 CREATE TABLE donors
 (
   id         BIGINT       NOT NULL AUTO_INCREMENT,
-  first_name VARCHAR(255) NOT NULL UNIQUE,
-  last_name  VARCHAR(255) NOT NULL UNIQUE,
+  first_name VARCHAR(255) NOT NULL,
+  last_name  VARCHAR(255) NOT NULL,
   address    VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
 );

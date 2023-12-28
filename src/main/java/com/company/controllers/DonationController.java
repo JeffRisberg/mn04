@@ -18,9 +18,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
 import java.net.URI;
-import java.sql.Timestamp;
-import java.time.Instant;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,8 +55,8 @@ public class DonationController {
     @Body("charity_id") @NotNull Long charityId,
     @Body("amount") @NotNull Double amount) {
 
-    Timestamp dateCreated = Timestamp.from(Instant.now());
-    Timestamp lastUpdated = Timestamp.from(Instant.now());
+    LocalDateTime dateCreated = LocalDateTime.now();
+    LocalDateTime lastUpdated = LocalDateTime.now();
 
     Donation donation =
       donationRepository.save(donorId, charityId, amount, dateCreated, lastUpdated);
@@ -74,8 +72,8 @@ public class DonationController {
     @Body("amount") @NotNull Double amount) {
 
     try {
-      Timestamp dateCreated = Timestamp.from(Instant.now());
-      Timestamp lastUpdated = Timestamp.from(Instant.now());
+      LocalDateTime dateCreated = LocalDateTime.now();
+      LocalDateTime lastUpdated = LocalDateTime.now();
 
       Donation donation =
         donationRepository.saveWithException(

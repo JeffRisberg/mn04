@@ -7,8 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Serdeable
 @Data
@@ -33,7 +32,7 @@ public class Donation extends AbstractItem {
     this.amount = amount;
   }
 
-  public Donation(Long donorId, Long charityId, Double amount, Timestamp dateCreated, Timestamp lastUpdated) {
+  public Donation(Long donorId, Long charityId, Double amount, LocalDateTime dateCreated, LocalDateTime lastUpdated) {
     this.setId(null);
     setDonorId(donorId);
     setCharityId(charityId);

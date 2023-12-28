@@ -10,8 +10,7 @@ import io.micronaut.data.repository.PageableRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.constraints.NotNull;
 
-import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @JdbcRepository(dialect = Dialect.MYSQL)
 public interface DonationRepository extends PageableRepository<Donation, Long> {
@@ -20,16 +19,16 @@ public interface DonationRepository extends PageableRepository<Donation, Long> {
     @NotNull Long donorId,
     @NotNull Long charityId,
     @NotNull Double amount,
-    Timestamp dateCreated,
-    Timestamp lastUpdated);
+    LocalDateTime dateCreated,
+    LocalDateTime lastUpdated);
 
   @Transactional
   default Donation saveWithException(
     @NotNull Long donorId,
     @NotNull Long charityId,
     @NotNull Double amount,
-    @NotNull Timestamp dateCreated,
-    @NotNull Timestamp lastUpdated) {
+    @NotNull LocalDateTime dateCreated,
+    @NotNull LocalDateTime lastUpdated) {
     save(donorId, charityId, amount, dateCreated, lastUpdated);
     throw new DataAccessException("test exception");
   }
@@ -39,6 +38,6 @@ public interface DonationRepository extends PageableRepository<Donation, Long> {
     @NotNull Long donorId,
     @NotNull Long charityId,
     @NotNull Double amount,
-    @NotNull Timestamp dateCreated,
-    @NotNull Timestamp lastUpdated);
+    @NotNull LocalDateTime dateCreated,
+    @NotNull LocalDateTime lastUpdated);
 }

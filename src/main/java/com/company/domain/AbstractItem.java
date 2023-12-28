@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Serdeable
 @Data
@@ -28,9 +28,9 @@ public class AbstractItem implements Serializable {
 
   @NotNull
   @MappedProperty(value = "date_created")
-  private Timestamp dateCreated;
+  private LocalDateTime dateCreated;
 
   @NotNull
   @MappedProperty(value = "last_updated")
-  private Timestamp lastUpdated;
+  private LocalDateTime lastUpdated;
 }

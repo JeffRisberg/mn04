@@ -5,7 +5,6 @@ build/
 target/
 out/
 .micronaut/
-.idea
 *.iml
 *.ipr
 *.iws
@@ -13,3 +12,5 @@ out/
 .settings
 .classpath
 .factorypath
+.idea/workspace.xml
+.idea/libraries

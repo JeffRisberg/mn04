@@ -100,10 +100,10 @@ public class DonationController {
   }
 
   protected URI location(Long id) {
-    return URI.create("/donors/" + id);
+    return URI.create("/donations/" + id);
   }
 
-  protected URI location(Donor donor) {
-    return location(donor.getId());
+  protected URI location(Donation donation) {
+    return location(donation.getId());
   }
 }

@@ -1,40 +1,31 @@
 package com.company.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.micronaut.data.annotation.MappedEntity;
+import io.micronaut.data.annotation.MappedProperty;
 import io.micronaut.serde.annotation.Serdeable;
-import java.util.Date;
-import javax.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 @Serdeable
-@Entity
-@Table(name = "donations")
 @Data
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
+@MappedEntity(value = "donations")
 public class Donation extends AbstractItem {
 
-  @ManyToOne(targetEntity = Donor.class)
-  @JoinColumn(name = "donor_id", insertable = false, updatable = false, referencedColumnName = "id")
-  @JsonIgnore
-  private Donor donor;
-
-  @Column(name = "donor_id")
+  @NotNull
+  @MappedProperty(value = "donor_id")
   private Long donorId;
 
-  @ManyToOne(targetEntity = Charity.class)
-  @JoinColumn(
-      name = "charity_id",
-      insertable = false,
-      updatable = false,
-      referencedColumnName = "id")
-  @JsonIgnore
-  private Charity charity;
-
-  @Column(name = "charity_id")
+  @NotNull
+  @MappedProperty(value = "charity_id")
   private Long charityId;
 
-  @Column(name = "amount", nullable = false)
+  @NotNull
+  @MappedProperty(value = "amount")
   private Double amount;
 
   public Donation(Double amount) {
@@ -42,7 +33,7 @@ public class Donation extends AbstractItem {
     this.amount = amount;
   }
 
-  public Donation(Long donorId, Long charityId, Double amount, Date dateCreated, Date lastUpdated) {
+  public Donation(Long donorId, Long charityId, Double amount, Timestamp dateCreated, Timestamp lastUpdated) {
     this.setId(null);
     setDonorId(donorId);
     setCharityId(charityId);
@@ -51,15 +42,16 @@ public class Donation extends AbstractItem {
     setLastUpdated(lastUpdated);
   }
 
-  public Donation() {}
+  public Donation() {
+  }
 
   public String toString() {
     StringBuilder sb = new StringBuilder();
 
     sb.append("Donation[dateCreated=" + getDateCreated());
     sb.append(", lastUpdated=" + getLastUpdated());
-    sb.append(", donor=" + donor);
-    sb.append(", charity=" + charity);
+    sb.append(", donorId=" + donorId);
+    sb.append(", charityId=" + charityId);
     sb.append(", amount=" + amount);
     sb.append("]");
 

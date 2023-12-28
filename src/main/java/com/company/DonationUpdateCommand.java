@@ -1,6 +1,8 @@
 package com.company;
 
 import io.micronaut.serde.annotation.Serdeable;
+
+import java.sql.Timestamp;
 import java.util.Date;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -8,6 +10,7 @@ import lombok.Data;
 @Data
 @Serdeable
 public class DonationUpdateCommand {
+
   @NotNull
   private final Long id;
 
@@ -21,8 +24,8 @@ public class DonationUpdateCommand {
   private Double amount;
 
   @NotNull
-  private Date dateCreated;
+  private Timestamp dateCreated;
 
   @NotNull
-  private Date lastUpdated;
+  private Timestamp lastUpdated;
 }

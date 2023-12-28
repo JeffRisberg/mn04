@@ -5,6 +5,7 @@ import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.data.annotation.MappedProperty;
 import io.micronaut.serde.annotation.Serdeable;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Serdeable
@@ -16,9 +17,11 @@ public class Donor {
   @GeneratedValue(GeneratedValue.Type.AUTO)
   private Long id;
 
+  @NotNull
   @MappedProperty(value = "first_name")
   private final String firstName;
 
+  @NotNull
   @MappedProperty(value = "last_name")
   private final String lastName;
 

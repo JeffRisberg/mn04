@@ -1,16 +1,21 @@
 package com.company.domain;
 
-import java.io.Serializable;
-import java.util.Date;
-import javax.persistence.*;
+import io.micronaut.data.annotation.GeneratedValue;
+import io.micronaut.data.annotation.Id;
+import io.micronaut.data.annotation.MappedProperty;
+import io.micronaut.serde.annotation.Serdeable;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-@MappedSuperclass
+import java.io.Serializable;
+import java.sql.Timestamp;
+
+@Serdeable
 @Data
 public class AbstractItem implements Serializable {
+
   @Id
-  @Column(name = "id", unique = true)
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(GeneratedValue.Type.AUTO)
   private Long id;
 
   protected void init(long id) {
@@ -21,23 +26,11 @@ public class AbstractItem implements Serializable {
     this.setId(CryptoUtils.generateEntityId(id, type));
   }
 
-  @Column(name = "date_created", nullable = false)
-  private Date dateCreated;
+  @NotNull
+  @MappedProperty(value = "date_created")
+  private Timestamp dateCreated;
 
-  @Column(name = "last_updated", nullable = true)
-  private Date lastUpdated;
-
-  /*
-  @PrePersist
-  protected void onCreate() {
-    System.out.println("CHECK onCREATE");
-    dateCreated = new Date();
-  }
-
-  @PreUpdate
-  protected void onUpdate() {
-    System.out.println("CHECK onUPDATE");
-    lastUpdated = new Date();
-  }
-  */
+  @NotNull
+  @MappedProperty(value = "last_updated")
+  private Timestamp lastUpdated;
 }

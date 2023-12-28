@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 @Data
 @Serdeable
 public class DonationUpdateCommand {
-
   @NotNull
   private final Long id;
 

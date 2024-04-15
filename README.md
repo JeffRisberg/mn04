@@ -1,10 +1,10 @@
 ## MN04
 
-## Micronaut 3.10.1 Documentation
+## Micronaut 4.3.8 Documentation
 
-- [User Guide](https://docs.micronaut.io/3.10.1/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.10.1/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.10.1/guide/configurationreference.html)
+- [User Guide](https://docs.micronaut.io/4.3.8/guide/index.html)
+- [API Reference](https://docs.micronaut.io/4.3.8/api/index.html)
+- [Configuration Reference](https://docs.micronaut.io/4.3.8/guide/configurationreference.html)
 - [Micronaut Guides](https://guides.micronaut.io/index.html)
 
 ---
@@ -73,6 +73,8 @@ curl http://localhost:8080/donors/list
 curl -X POST http://localhost:8080/donations -H 'Content-Type: application/json' -d '
 {"donor_id": 1, "charity_id": 1, "amount": 2000.0}
 '
+
+curl -X DELETE http://localhost:8080/donations/1
 
 curl -X DELETE http://localhost:8080/donors/1
 
